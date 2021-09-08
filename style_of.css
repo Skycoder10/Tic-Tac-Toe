@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    background-color: #efe6d5;
+}
+.gamename
+{
+    font-size: 50px;
+    color:royalblue;
+    font-style: italic;
+    text-align: center;
+    transform: translate(0px,150px);
+}
+.first
+{
+    width: 100vw;
+    height :100vh;
+    display: grid;
+    justify-content:center;
+    align-content:center;
+    align-items: center;
+    grid-template-columns: repeat(3,auto);
+}
+.cell
+{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(0, 0, 0);
+    border: 1px solid rgb(131, 125, 125);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    cursor: grab;
+}
+.cell.X,
+.cell.O{
+    cursor: not-allowed;
+
+}
+
+.cell.X::before,
+.cell.X::after,
+.first.X .cell:not(.X):not(.O):hover::before,
+.first.X .cell:not(.X):not(.O):hover::after
+{
+    content: ' ';
+    width: 5px;
+    height: 90px;
+    position: absolute;
+    background-color: white;
+    border:none;
+}
+.cell.X::before,
+.first.X .cell:not(.X):not(.O):hover::before
+{
+    transform: rotate(45deg);
+}
+.cell.X::after,
+.first.X .cell:not(.X):not(.O):hover::after
+{
+    transform: rotate(-45deg);
+}
+.cell.O::before,
+.cell.O::after,
+.first.O .cell:not(.X):not(.O):hover::before,
+.first.O .cell:not(.X):not(.O):hover::after
+{
+    content: ' ';
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: white;
+    
+}
+
+.cell.O::before,
+.first.O .cell:not(.X):not(.O):hover::before
+{
+    width:80px;
+    height:80px;
+    background-color: white;
+}
+.cell.O::after,
+.first.O .cell:not(.X):not(.O):hover::after
+{
+    width: 70px;
+    height:70px;
+    background-color: black;
+}
+.winningmessege
+{
+    display: none;
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-color: rgb(72, 41, 126, 0.9);
+    justify-content: center;
+    align-items: center;
+    font-size: 5rem;
+    flex-direction: column;
+
+}
+.winningmessege button
+{
+    font-size: 2rem;
+    cursor: pointer;
+    border:2px solid black;
+}
+.winningmessege button:hover
+{
+    background-color: black;
+    color: white;
+    border-color: white;
+}
+.winningmessege.show{
+    display:flex;
+}
